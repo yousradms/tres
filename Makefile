@@ -2,7 +2,7 @@
 NAME		= inception
 SRCS		= ./srcs
 COMPOSE		= $(SRCS)/docker-compose.yml
-HOST_URL	= wcorrea-.42.fr
+HOST_URL	= ydoumas.42.fr
 
 
 all: $(NAME)

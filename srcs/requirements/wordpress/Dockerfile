@@ -2,17 +2,17 @@ FROM	debian:oldstable
 
 EXPOSE	9000
 
-ARG		PHPPATH=/etc/php/8.4/fpm
+ARG		PHPPATH=/etc/php/7.4/fpm
 
 RUN		apt update && apt install --no-install-recommends --no-install-suggests -y \
 		ca-certificates \
-		php8.4-fpm \
-		php8.4-mysql \
+		php7.4-fpm \
+		php7.4-mysql \
 		wget \
 		tar && \
 		rm -rf /var/lib/apt/lists/*
 
-RUN		service php8.4-fpm stop
+RUN		service php7.4-fpm stop
 
 COPY	conf/www.conf ${PHPPATH}/pool.d/
 
@@ -36,4 +36,4 @@ COPY	conf/wp-config.php /tmp/
 COPY	tools/setup.sh /bin/
 RUN		chmod +x /bin/setup.sh
 
-CMD		["setup.sh", "php-fpm8.4", "--nodaemonize"]
+CMD		["setup.sh", "php-fpm7.4", "--nodaemonize"]
